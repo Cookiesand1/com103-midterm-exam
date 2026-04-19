@@ -79,3 +79,17 @@ for m in matches:
     if m["kda"] > best["kda"]:
         best = m
 
+# OUTPUT
+print("=========================================")
+print(f"{ign + ' -- MATCH LOG (' + rank + ')':^40}")
+print("=========================================")
+
+for i, m in enumerate(matches):
+    result_word = "WIN" if m["result"] == "W" else "LOSS" # list comprehension
+    print(f"[{i +1}] {m['hero']:<8} | KDA: {m['kda']:>5.2f} | {result_word:^4} | {m['tag']}")
+
+print("-----------------------------------------")
+print(f"Matches Played: {len(matches)}")
+print(f"Wins : {wins} | Losses : {losses}")
+print(f"Win Rate : {winrate}%")
+print(f"Best Match : [{best['match_no']}] {best['hero']} (KDA: {best['kda']:.2f})")
